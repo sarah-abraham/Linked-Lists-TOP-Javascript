@@ -72,5 +72,26 @@ class LinkedList{
         }
     }
 
+    pop(){
+        if (this.head === null) {
+            return null;
+        }
+        else if(this.size === 1){
+            let poppedValue = this.head.value;
+            this.head = null;
+            this.size--;
+            return poppedValue;
+        }
+        else{
+            let temp = this.head;
+            while(temp.next.next != null){
+                temp = temp.next;
+            }
+            let poppedValue = temp.value;
+            temp.next = null;
+            this.size--;
+            return poppedValue
+        }
+    }
 
 }
