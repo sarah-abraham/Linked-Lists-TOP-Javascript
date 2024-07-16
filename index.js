@@ -94,4 +94,38 @@ class LinkedList{
         }
     }
 
+    contains(value){
+        if(this.head === null){
+            return false;
+        }
+        else{
+            let temp = this.head;
+            while(temp!=null){
+                if(temp.value === value){
+                    return true;
+                }
+                temp = temp.next;
+            }
+            return false;
+        }
+    }
+
+    find(value){
+        if(this.head === null){
+            return null;
+        }
+        else{
+            let count = 0;
+            let temp = this.head;
+            while(temp!=null){
+                if(temp.value === value){
+                    return count;
+                }
+                count++;
+                temp = temp.next;
+            }
+            return null;
+        }
+    }
+
 }
