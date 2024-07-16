@@ -62,7 +62,7 @@ class LinkedList{
             return null;
         }
         else{
-            let count = 1;
+            let count = 0;
             let temp = this.head;
             while(count!=index){
                 temp = temp.next;
