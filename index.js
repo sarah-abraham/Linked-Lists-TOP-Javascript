@@ -128,4 +128,19 @@ class LinkedList{
         }
     }
 
+    toString(){
+        if(this.head === null){
+            return "No nodes to display.";
+        }
+        else{
+            let temp = this.head;
+            let result = "";
+            while(temp!=null){
+                result+=`(${temp.value}) -> `;
+                temp = temp.next;
+            }
+            result+=("null");
+            return result;
+        }
+    }
 }
