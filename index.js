@@ -166,6 +166,26 @@ class LinkedList{
             this.size++;
         }
     }
+
+    removeAt(index){
+        if(this.size===0 || index>=this.size){
+            return null;
+        }
+        if (index === 0) {
+            this.head = this.head.next;
+            this.size--;
+        }
+        else{
+            let count = 0;
+            let temp = this.head;
+            while(count < index - 1){
+                count++;
+                temp = temp.next;
+            } 
+            temp.next = temp.next.next;
+            this.size--;
+        }
+    }
 }
 
 let linkedList = new LinkedList();
@@ -193,6 +213,10 @@ console.log("\nElement at index 2:", linkedList.at(2));
 linkedList.insertAt(35, 2); 
 console.log("\nLinked List after inserting at index 2:");
 console.log(linkedList.toString()); 
+
+linkedList.removeAt(2); 
+console.log("\nLinked List after removing element at index 2:");
+console.log(linkedList.toString());
 
 console.log("\nPopped element:", linkedList.pop()); 
 console.log("Linked List after pop:");
