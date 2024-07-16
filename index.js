@@ -58,7 +58,7 @@ class LinkedList{
     }
 
     at(index){
-        if(size === 0 || index>=this.size){
+        if(this.size === 0 || index>=this.size){
             return null;
         }
         else{
@@ -87,7 +87,7 @@ class LinkedList{
             while(temp.next.next != null){
                 temp = temp.next;
             }
-            let poppedValue = temp.value;
+            let poppedValue = temp.next.value;
             temp.next = null;
             this.size--;
             return poppedValue
@@ -144,3 +144,36 @@ class LinkedList{
         }
     }
 }
+
+let linkedList = new LinkedList();
+
+linkedList.append(10);
+linkedList.append(20);
+linkedList.append(30);
+
+console.log("Linked List after append:");
+console.log(linkedList.toString());
+console.log("Size:", linkedList.getSize()); 
+console.log("Head:", linkedList.getHead());
+console.log("Tail:", linkedList.getTail()); 
+
+
+linkedList.prepend(5);
+
+console.log("\nLinked List after prepend:");
+console.log(linkedList.toString()); 
+console.log("Size:", linkedList.getSize()); 
+console.log("Head:", linkedList.getHead()); 
+
+console.log("\nElement at index 2:", linkedList.at(2)); 
+
+console.log("\nPopped element:", linkedList.pop()); 
+console.log("Linked List after pop:");
+console.log(linkedList.toString()); 
+console.log("Size:", linkedList.getSize()); 
+
+console.log("\nContains 10:", linkedList.contains(10)); 
+console.log("Contains 30:", linkedList.contains(30)); 
+
+console.log("\nIndex of value 10:", linkedList.find(10)); 
+console.log("Index of value 30:", linkedList.find(30)); 
