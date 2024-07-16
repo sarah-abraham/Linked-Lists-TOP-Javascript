@@ -36,15 +36,15 @@ class LinkedList{
         this.size++;
     }
 
-    size(){
+    getSize(){
         return this.size;
     }
 
-    head(){
-        return this.head;
+    getHead(){
+        return this.head.value;
     }
 
-    tail(){
+    getTail(){
         if (this.head === null) {
             return null;
         }
@@ -53,7 +53,22 @@ class LinkedList{
             while (temp.next !== null) {
                 temp = temp.next;
             }
-            return temp;
+            return temp.value;
+        }
+    }
+
+    at(index){
+        if(size === 0 || index>=this.size){
+            return null;
+        }
+        else{
+            let count = 1;
+            let temp = this.head;
+            while(count!=index){
+                temp = temp.next;
+                count++;
+            }
+            return temp.value;
         }
     }
 
