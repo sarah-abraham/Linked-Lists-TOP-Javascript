@@ -143,6 +143,29 @@ class LinkedList{
             return result;
         }
     }
+
+    insertAt(value,index){
+        if(this.size===0 || index>this.size){
+            return null;
+        }
+
+        if (index === 0) {
+            this.prepend(value);
+            this.size++;
+        }
+        else{
+            let count = 0;
+            let temp = this.head;
+            while(count < index - 1){
+                count++;
+                temp = temp.next;
+            }
+            const newNode = new Node(value);
+            newNode.next = temp.next;
+            temp.next = newNode;
+            this.size++;
+        }
+    }
 }
 
 let linkedList = new LinkedList();
@@ -166,6 +189,10 @@ console.log("Size:", linkedList.getSize());
 console.log("Head:", linkedList.getHead()); 
 
 console.log("\nElement at index 2:", linkedList.at(2)); 
+
+linkedList.insertAt(35, 2); 
+console.log("\nLinked List after inserting at index 2:");
+console.log(linkedList.toString()); 
 
 console.log("\nPopped element:", linkedList.pop()); 
 console.log("Linked List after pop:");
