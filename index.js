@@ -35,4 +35,27 @@ class LinkedList{
         }
         this.size++;
     }
+
+    size(){
+        return this.size;
+    }
+
+    head(){
+        return this.head;
+    }
+
+    tail(){
+        if (this.head === null) {
+            return null;
+        }
+        else {
+            let temp = this.head;
+            while (temp.next !== null) {
+                temp = temp.next;
+            }
+            return temp;
+        }
+    }
+
+
 }
